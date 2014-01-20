@@ -9,10 +9,8 @@ import com.glines.socketio.server.*;
 
 import static com.glines.socketio.server.SocketIOFrame.*;
 import java.io.*;
-import java.math.*;
 import java.util.*;
 import javax.json.*;
-import javax.json.stream.*;
 
 
 /**
@@ -33,7 +31,7 @@ public class Frame {
         return (new SocketIOFrame(FrameType.JSON_MESSAGE, JSON_MESSAGE_TYPE, w.toString()));
     }
     
-    public static SocketIOFrame event(String event, List<Map<String, String>> items) {
+    public static SocketIOFrame emit(String event, List<Map<String, String>> items) {
         JsonArrayBuilder ab = Json.createArrayBuilder();
         for (Map<String, String> i: items) {
             JsonObjectBuilder ob = Json.createObjectBuilder();
